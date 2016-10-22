@@ -1,17 +1,16 @@
 <?php
 
-$server_name = "127.0.0.1";
-$username = "admin";
-$password = "jFnAYeDjwMQUMvaP";
+    $server_name = "127.0.0.1";
+    $db_user_name = "admin";
+    $db_password = "password";
+    $db_name = "small_scale_network_analysis";
 
-try {
-    $conn = new PDO("mysql:host=$server_name;dbname=small_scale_network_analysis", $username, $password);
-    // set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Connected successfully"; 
-}
-catch(PDOException $e){
-    echo "Connection failed: " . $e->getMessage();
-}
+    // Create connection
+    $db = new mysqli($server_name, $db_user_name, $db_password, $db_name);
+    
+    // Check connection
+    if ($db->connect_error) {
+        die("Connection failed: " . $db->connect_error);
+    } 
 
 ?>

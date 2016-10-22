@@ -25,20 +25,13 @@ h2 {
     width:50x;
 }
 
-.centered_items, #logo{
-    width 200px;
-    left:50%;
-    -webkit-transform: translate(-50%,0);
-    position:absolute;
-}
-
 #outer_group{
     position:relative;
-    top:14%;
+    top:3%;
 }
 
 #submit_button{
-    background-color: #3078a8; /* Green */
+    background-color: #3078a8;
     border: none;
     color: white;
     padding: 15px 32px;
