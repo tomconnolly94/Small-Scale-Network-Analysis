@@ -21,7 +21,7 @@
                     <div class="login_element">
                         <h4>Password</h4> <input name="password" type="password"/>
                     </div>
-                    
+
                     <input class="centered_items" id="submit_button" type="submit" style="top:180px;">
                     <a class="centered_items" id="submit_button" href="register.php" style="top:250px;">Register</a>
                 </form>
