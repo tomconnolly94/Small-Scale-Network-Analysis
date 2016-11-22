@@ -1,8 +1,8 @@
  function init(){
                 
     scene = new THREE.Scene();
-    var WIDTH = 5000, 
-        HEIGHT = 5000;
+    var WIDTH = window.innerWidth/1.2, 
+        HEIGHT = window.innerHeight/1.5;
 
     renderer = new THREE.WebGLRenderer({antialias:true});
     renderer.setSize(WIDTH, HEIGHT);
@@ -12,6 +12,14 @@
     camera.position.set(0,6000,0);
     scene.add(camera);
 
+     window.addEventListener('resize', function() {
+      var WIDTH = window.innerWidth/1.2,
+          HEIGHT = window.innerHeight/1.5;
+      renderer.setSize(WIDTH, HEIGHT);
+      camera.aspect = WIDTH / HEIGHT;
+      camera.updateProjectionMatrix();
+    });
+     
     // Create a light, set its position, and add it to the scene.
     var light = new THREE.PointLight(0xffffff);
     light.position.set(-100,200,100);
@@ -26,7 +34,8 @@
     // Add OrbitControls so that we can pan around with the mouse.
     controls = new THREE.OrbitControls(camera, renderer.domElement);
 
-     scene_container = document.getElementById("container");
-     //document.body.appendChild(scene_container);
+     var scene_container = document.getElementById("container");
+     renderer.domElement.className = "centered_items";
+     document.body.appendChild(scene_container);
      scene_container.appendChild( renderer.domElement );
 }

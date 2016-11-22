@@ -2,7 +2,7 @@
 
     <head>
         <title>Register</title>
-        <?php include("../fragments/generic_head.php"); ?>
+        <?php include("../fragments/generic_head_refs.php"); ?>
         <link rel="stylesheet" type="text/css" href="../../css/login.css">
     </head>
 

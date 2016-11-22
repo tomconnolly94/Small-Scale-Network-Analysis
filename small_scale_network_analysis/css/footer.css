@@ -1,0 +1,10 @@
+#footer_container {
+    clear: both; 
+    /*margin-top: 194px;*/ 
+    z-index: 1; 
+    width: 100%;
+}
+
+.footer {
+  padding: 10px;
+}

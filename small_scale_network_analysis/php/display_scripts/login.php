@@ -2,7 +2,7 @@
 
     <head>
         <link rel="stylesheet" type="text/css" href="../../css/login.css">
-        <?php include("../fragments/generic_head.php"); ?>
+        <?php include("../fragments/generic_head_refs.php"); ?>
         <title> Log in</title>
     </head>
 
