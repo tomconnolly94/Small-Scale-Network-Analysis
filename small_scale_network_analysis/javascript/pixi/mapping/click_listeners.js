@@ -9,5 +9,4 @@ function onButtonDown() {
     
     console.log("click registered");
     console.log(this);
-    new_data = true;
 }

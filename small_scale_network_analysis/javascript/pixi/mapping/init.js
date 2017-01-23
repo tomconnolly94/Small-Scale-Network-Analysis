@@ -16,7 +16,8 @@ function init() {
         
         source.onmessage = function(event) {
             new_data = true;
-            data = JSON.parse(event.data);        
+            data = JSON.parse(event.data);
+            console.log(data);
         }
         use_server_event = true;
     } 
@@ -39,13 +40,11 @@ function init() {
         
         use_server_event = false;
     }
-    for(var i )
-        create_host_node(segment_deg, i, data, centre_node, "0xFFFFFF");
-
+    
     centre_node = new PIXI.Graphics();
     centre_node.beginFill(0xFFFFFF);
     centre_node.drawCircle(renderer.view.width/2, renderer.view.height/2, 20);
     stage.addChild(centre_node);
 
-    animate();    
+    animate();
 }

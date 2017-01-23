@@ -1,13 +1,12 @@
-function create_host_node(segment_deg, i, result, graphics_centre, colour){
+function create_host_node(segment_deg, i, result, centre_node, colour){
     
-    var node_dist_scale = 200;
     var positions = getVector(segment_deg * i);
     var centre_position = [renderer.view.width/2, renderer.view.height/2];
     //var centre_position = [300, 300];
     
     var node = createNode(segment_deg, i, colour, positions, node_dist_scale);
     
-    var message = createMessage(result[i].hostname);
+    var message = createMessage(result.hostname);
     var node_line = createNodeLine([(positions[0]*-node_dist_scale),(positions[1]*-node_dist_scale)], node_dist_scale);
     
     node.colour = colour;
@@ -45,15 +44,13 @@ function createNode(segment_deg, i, colour, positions, node_dist_scale){
 function createMessage(text){
     
     var style = {
-        fill : '#FFFFFF'
+        fill : '#FFFFFF',
+        fontSize : 16
     };
 
     var message = new PIXI.Text(text, style);
-    //message.x = 30;
-    //message.y = 180;
+    message.y = -50;
 
-    //message.position.set(500, 200);
-    
     return message;
 }
 
@@ -69,10 +66,16 @@ function createNodeLine(position_to, node_dist_scale){
     return line;
 }
 
-function moveNode(node, segment_dev, i){
-    var positions = getVector(segment_dev, i);
+function updateNode(node, segment_dev, i, node_dist_scale){
+    var positions = getVector(segment_dev * i);
     
-    node.beginFill();
+    node.beginFill(node.colour);
     node.drawCircle(0, 0, 20);
     node.position.set(renderer.view.width/2+positions[0]*node_dist_scale,renderer.view.height/2+positions[1]*node_dist_scale);
+}
+
+function updateCentreNode(){
+    centre_node.clear();
+    centre_node.beginFill(0xFFFFFF);
+    centre_node.drawCircle(renderer.view.width/2, renderer.view.height/2, 20);
 }

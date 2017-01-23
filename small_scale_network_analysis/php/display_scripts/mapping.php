@@ -39,7 +39,12 @@
             var lines = new Array(); //collection of lines connecting nodes
             var centre_node; //centre node of the scene
             var new_data = false; //boolean to indicate that new data has arrived at the client
+            var new_graphics = false; //boolean to indicate if graphics properties have changed and need redrawing
             var use_server_events = false; //boolean to indicate which type of data transmission will be used
+            
+            var node_dist_scale = 200; //scaling factor for distance of nodes from centre
+            var segment_deg;
+            var first_run = true;
             //star the pixi scene
             PIXI.loader.add("../../images/attack.jpg").load(init);
         </script>
