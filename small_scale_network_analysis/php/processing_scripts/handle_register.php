@@ -17,7 +17,7 @@ if($results->fetch_assoc()["COUNT(*)"] > 0){
 }
 
 $db->query("INSERT INTO 
-                user_information (name,username,password,email,admin) 
+                user_information ('name','username','password','email','admin') 
             VALUES 
                 ('$name', '$username', '$hashed_password','$email', '$admin')");
 

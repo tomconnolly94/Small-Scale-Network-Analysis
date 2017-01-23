@@ -40,7 +40,13 @@ function init() {
         
         use_server_event = false;
     }
+<<<<<<< HEAD
     
+=======
+    //for(var i )
+    //    create_host_node(segment_deg, i, data, centre_node, "0xFFFFFF");
+
+>>>>>>> c7286733eaac0dd9637e9341c7b591f53b178936
     centre_node = new PIXI.Graphics();
     centre_node.beginFill(0xFFFFFF);
     centre_node.drawCircle(renderer.view.width/2, renderer.view.height/2, 20);

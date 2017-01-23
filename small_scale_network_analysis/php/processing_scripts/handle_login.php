@@ -5,7 +5,8 @@ if(!isset($_POST["username"]) || !isset($_POST["password"])){
 }
 //sanitise and load user data
 $username = htmlspecialchars($_POST["username"]);
-$hashed_password = md5(htmlspecialchars($_POST["password"]));
+//$hashed_password = md5(htmlspecialchars($_POST["password"]));
+$hashed_password = htmlspecialchars(md5($_POST["password"]));
 
 //init db connection
 include("../fragments/db_connect.php");

@@ -3,19 +3,27 @@
     header('Content-Type: text/event-stream');
     header('Cache-Control: no-cache'); // recommended to prevent caching of event data.
 
+<<<<<<< HEAD
     $num = 1 ;
+=======
+    $ip = shell_exec("ifconfig | grep -A 1 'eth0' | tail -1 | cut -d ':' -f 2 | cut -d ' ' -f 1");
+
+    $nmap_raw = shell_exec("sudo nmap -sP '$ip' ");
+
+    $num = 0;
+>>>>>>> c7286733eaac0dd9637e9341c7b591f53b178936
 
     //while(true) {
 
-    $first = array("hostname" => "lin12345", "ip_address" => "111.111.111.111");
-    $second = array("hostname" => "mac12345", "ip_address" => "222.222.222.222");
-    $third = array("hostname" => "win12345", "ip_address" => "333.333.333.333");
-    $fourth = array("hostname" => "lin11122", "ip_address" => "444.444.444.444");
-    $fifth = array("hostname" => "lin11122", "ip_address" => "444.444.444.444");
-    $sixth = array("hostname" => "win12345", "ip_address" => "333.333.333.333");
-    $seventh = array("hostname" => "lin11122", "ip_address" => "444.444.444.444");
-    $eigth = array("hostname" => "lin11122", "ip_address" => "444.444.444.444");
-    $ninth = array("hostname" => "lin11122", "ip_address" => "444.444.444.444");
+    $first = array("hostname" => "lin1", "ip_address" => "111.111.111.111");
+    $second = array("hostname" => "mac1", "ip_address" => "111.111.111.112");
+    $third = array("hostname" => "win1", "ip_address" => "111.111.111.113");
+    $fourth = array("hostname" => "lin2", "ip_address" => "111.111.111.114");
+    $fifth = array("hostname" => "lin3", "ip_address" => "111.111.111.115");
+    $sixth = array("hostname" => "win2", "ip_address" => "111.111.111.116");
+    $seventh = array("hostname" => "lin4", "ip_address" => "111.111.111.117");
+    $eigth = array("hostname" => "lin5", "ip_address" => "111.111.111.118");
+    $ninth = array("hostname" => "lin6", "ip_address" => "111.111.111.119");
 
 
     if($num == 0){
