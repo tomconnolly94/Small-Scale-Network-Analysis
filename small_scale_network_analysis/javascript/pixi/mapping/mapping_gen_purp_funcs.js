@@ -1,13 +1,15 @@
-function create_host_node(segment_deg, i, result, graphics_centre, colour){
+var node_dist_scale = 200;
+
+function create_host_node(segment_deg, i, data, graphics_centre, colour){
     
-    var node_dist_scale = 200;
     var positions = getVector(segment_deg * i);
     var centre_position = [renderer.view.width/2, renderer.view.height/2];
     //var centre_position = [300, 300];
-    
+    console.log(positions);
     var node = createNode(segment_deg, i, colour, positions, node_dist_scale);
     
-    var message = createMessage(result[i].hostname);
+    var message = createMessage(data[i].hostname);
+    node.message = data[i].hostname;
     var node_line = createNodeLine([(positions[0]*-node_dist_scale),(positions[1]*-node_dist_scale)], node_dist_scale);
     
     node.colour = colour;
@@ -70,9 +72,12 @@ function createNodeLine(position_to, node_dist_scale){
 }
 
 function moveNode(node, segment_dev, i){
-    var positions = getVector(segment_dev, i);
+    var positions = getVector(segment_dev * i);
+    
+    console.log(positions);
     
     node.beginFill();
     node.drawCircle(0, 0, 20);
     node.position.set(renderer.view.width/2+positions[0]*node_dist_scale,renderer.view.height/2+positions[1]*node_dist_scale);
+    node.interactive = true;
 }

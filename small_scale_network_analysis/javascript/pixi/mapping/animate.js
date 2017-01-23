@@ -29,29 +29,38 @@ function animate() {
     var segment_deg = 360/data.length;
     
     for(var i = 0; i < nodes.length; i++){
-        console.log(nodes);
+        //console.log(nodes);
         moveNode(nodes[i], segment_deg, i);
     }
             
     //check if data is different
     if(new_data){
         
+        //loop through existing nodes to find any nodes that are still in the new data set
         for(var i = 0; i < nodes.length; i++){
-            if(nodes[i] != null && nodes[i].parent != null){
+            var node_found = false;
+            for(var j = 0; j < data.length; j++){
                 var node = nodes[i];
-                node.clear();
-                node.children[0].clear();
+                if(node.message == data[j].hostname){
+                    node_found = true;
+                    data.splice(j,1);
+                }
             }
+             //delete node
+             if(nodes[i] != null && nodes[i].parent != null && !node_found){
+                 node.clear();
+                 node.children[0].clear();
+             }
         }
 
         for(var i = 0; i < data.length; i++){
-            /*if(nodes[i] == undefined || nodes[i].colour == undefined){
+            if(nodes[i] == undefined || nodes[i].colour == undefined){
                 create_host_node(segment_deg, i, data, centre_node, "0xFFFFFF");
             }
             else{
                 create_host_node(segment_deg, i, data, centre_node, nodes[i].colour);
-            }*/
-            moveNode(nodes[i], segment_deg, i);
+            }
+            //moveNode(nodes[i], segment_deg, i);
         }
         new_data = false;
     }
